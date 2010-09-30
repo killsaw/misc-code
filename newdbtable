@@ -1,0 +1,28 @@
+#!/usr/bin/env php -q
+<?php
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'devuser');
+define('DB_PASS', 'devpass');
+define('DB_NAME', 'test');
+
+if (!isset($argv[1])) {
+	die("Usage: newtable <tablename>\n");
+}
+
+$table_name = $argv[1];
+
+// Establish database connection.
+$conn = mysql_connect(DB_HOST, DB_USER, DB_PASS)
+			or die("Failed to connect to db. ".mysql_error()."\n");
+mysql_select_db(DB_NAME)
+	or die("Failed to connect to db. ".mysql_error()."\n");
+
+// Perform query.
+mysql_query("
+CREATE TABLE `{$table_name}` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `date_added` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+");

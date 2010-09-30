@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ "$1" = "" ]; then
+	echo "Usage: newrepo <repo name>";
+	exit;
+fi
+
+REPO="$1";
+
+mkdir $REPO;
+cd $REPO;
+git init;
+touch README;
+git add README;
+git commit -m "Initial commit";
