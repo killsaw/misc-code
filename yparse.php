@@ -70,8 +70,6 @@ fruit: {
 	]
 }
 ';
-// Clean up input
-$config_data  = str_replace("\r", "\n", $config_data);
 
 print("<pre>");
 print_r(parse_yaml($config_data));
