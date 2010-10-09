@@ -99,14 +99,9 @@ class String
 			$strpos = 'stripos';
 		}
 		
-		$x = 0;
 		while(($pos = $strpos($this->modified, $str, $offset)) !== false) {
 			$found[] = $pos;
 			$offset = $pos+1;
-			
-			if (++$x > 100) {
-				die("INFINITE LOOP");
-			}
 		}
 		
 		if (count($found) < 1) {
