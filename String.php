@@ -221,7 +221,11 @@ class String
 	public static function fromURL($url, $stripHTML=false)
 	{
 		$data = file_get_contents($url);
-		$s = new TrickyString($data);
+		if (!isset($this)) {
+			$s = new TrickyString($data);
+		} else {
+			$s = $this;
+		}
 		
 		if ($stripHTML) {
 			$s->stripHTML();
