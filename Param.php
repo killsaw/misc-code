@@ -1,5 +1,10 @@
 <?php
+/**
+  DBC-style function parameter check class.
 
+  Author: Steven Bredenberg
+         <steven@killsaw.com>
+**/
 class Param
 {
 	static protected $callback = null;
@@ -45,6 +50,10 @@ class Param
 		if (!is_null($conditions)) {
 			self::evalExpression($value, $real_type, $conditions);
 		}
+	}
+	
+	static public function ensure($var, $conditions=null) {
+		return self::required($var, gettype($var), $conditions);
 	}
 	
 	static protected function evalExpression($value, $type, $conditions)
