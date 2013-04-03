@@ -9,7 +9,7 @@
 $opts = getopt('f:t:c');
 
 if (!isset($opts['f']) && !isset($opts['t'])) {
-    die("Usage: make_kindle.php -f <from_dir> -t <to_kindle_dir>\n");
+    die("Usage: categorize_kindle.php -f <from_dir> -t <to_kindle_dir>\n");
 }
 
 $from_dir = $opts['f'];
